@@ -1,0 +1,210 @@
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+  min-height: 100vh;
+  padding-top: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  /* Use the high-resolution living room sofa image as a full-bleed background */
+  background-image: linear-gradient(to right, rgba(250, 250, 247, 0.98) 0%, rgba(250, 250, 247, 0.85) 45%, rgba(250, 250, 247, 0.2) 80%, rgba(250, 250, 247, 0) 100%), url('../../styles/herosection.jpg');
+  background-size: cover;
+  background-position: center right;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(196, 168, 130, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-xl);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left content */
+.hero-content {
+  z-index: 1;
+  max-width: 580px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 6px 16px;
+  background: rgba(196, 168, 130, 0.15);
+  border: 1px solid rgba(196, 168, 130, 0.3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-lg);
+  animation: fadeInUp 0.6s ease;
+  letter-spacing: 0.5px;
+}
+
+.hero-badge .badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary-dark);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.15;
+  margin-bottom: var(--space-lg);
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+.hero-description {
+  font-size: var(--text-lg);
+  color: var(--color-dark-gray);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  max-width: 480px;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  animation: fadeInUp 0.6s ease 0.25s both;
+}
+
+.hero-stars {
+  color: var(--color-star);
+  font-size: var(--text-lg);
+  letter-spacing: 2px;
+}
+
+.hero-rating-text {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.hero-rating-count {
+  font-size: var(--text-sm);
+  color: var(--color-medium-gray);
+}
+
+.hero-price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+
+.hero-price-current {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.hero-price-old {
+  font-size: var(--text-lg);
+  color: var(--color-medium-gray);
+  text-decoration: line-through;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  animation: fadeInUp 0.6s ease 0.35s both;
+}
+
+/* Custom premium hover effects for buttons in Hero */
+.hero-actions .btn-primary {
+  padding: 14px 32px;
+}
+
+.hero-actions .btn-outline {
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    background-image: linear-gradient(to bottom, rgba(250, 250, 247, 0.98) 0%, rgba(250, 250, 247, 0.9) 65%, rgba(250, 250, 247, 0.4) 100%), url('../../styles/herosection.jpg');
+    background-position: center;
+  }
+
+  .hero-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-description {
+    margin: 0 auto var(--space-lg);
+  }
+
+  .hero-rating {
+    justify-content: center;
+  }
+
+  .hero-price {
+    justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
